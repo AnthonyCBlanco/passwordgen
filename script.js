@@ -4,9 +4,10 @@ var lowerarr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 var upperarr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
 var numberarr = ["1","2","3","4","5","6","7","8","9","0",]
 var specialchararr = ["!","#","@","$","%","^","&","*","(",")",",","-","_","=","+","[","]","{","}","|",";",":","<",">","/","?","`","~",]
-//
+//Gererate Password
 function generatePassword(){
   console.log("button pressed")
+  //promts to delcare password criteria
   var charcters = []
   var length = prompt("How Many Charcters Would You Like Your Password To Contain")
   var lowercase = confirm("Press 'ok' if you would like lower case letters")
@@ -14,9 +15,10 @@ function generatePassword(){
   var number = confirm("Press 'ok' if you would like Numbers")
   var specialchar = confirm("Press 'ok' if you would like Special Characters")
 
-  if (length >= 8 && length <= 128){
+  if (length >= 8 && length <= 128){ //checks if lenght is within the range of 8 and 128
+    //adds characters to the random pool as they are declared in browser
     if (lowercase ===true){
-      charcters = charcters.concat(lowerarr)
+      charcters = charcters.concat(lowerarr) 
     }
     if(uppercase === true){
       charcters = charcters.concat(upperarr)
@@ -32,14 +34,13 @@ function generatePassword(){
     confirm("please select a password length between 8 and 128")
   }
   console.log(charcters)
+  // Mixes the array then slices the length declared above
   var shuffled = charcters.sort(function(){ return 0.5 - Math.random() });
   var password = shuffled.slice(0,length);
 
-  var passwordstring = password.join("")
+  var passwordstring = password.join("") //converts array to string on text
 
   console.log(passwordstring);
-
-  
 
   return(passwordstring);
 }
